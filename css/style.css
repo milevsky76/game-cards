@@ -1,0 +1,136 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  height: 1px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #31535c;
+  background-image:
+    linear-gradient(0deg, rgba(4, 7, 12, 1) 0%, rgba(25, 45, 54, 0.5) 100%),
+    linear-gradient(90deg, rgba(49, 83, 92, 0.5) 0%, rgba(15, 22, 32, 1) 100%);
+}
+
+.table {
+  display: grid;
+  grid-template-columns: repeat(4, 112.5px);
+  grid-template-rows: repeat(4, 150px);
+  place-content: center;
+  gap: 30px;
+  width: 100%;
+  height: 100vh;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: brown; */
+  perspective: 500px;
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  backface-visibility: hidden;
+
+  background-image:
+    linear-gradient(0deg, rgba(4, 7, 12, 1) 0%, rgba(25, 45, 54, 0.5) 100%),
+    linear-gradient(90deg, rgba(49, 83, 92, 0.5) 0%, rgba(15, 22, 32, 1) 100%);
+  color: silver;
+  border: 1px solid silver;
+  text-align: center;
+  font-size: 72px;
+  cursor: pointer;
+  border-radius: 10px;
+
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.front {
+  background-color: teal;
+  transform: rotateY(180deg);
+}
+
+.back {
+  background-color: blueviolet;
+  transform: rotateY(0deg);
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+}
+
+/* Поворот карточки */
+.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Скрытие карточки */
+.remove .card-inner {
+  display: none;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+}
+
+.screen__inner {
+  display: grid;
+  place-content: center;
+  height: 100%;
+  /* display: flex;
+  flex-direction: column; */
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center; */
+}
+
+button {
+  margin-top: 20px;
+}
+
+/* .new-game__link:hover,
+.new-game__link:focus {
+  transform: translateX(-80px);
+  transition: all 0.7s ease-in-out;
+  outline: none;
+}
+
+.new-game__link:hover::before,
+.new-game__link:focus::before {
+  content: '';
+  display: flex;
+  position: absolute;
+  top: 23px;
+  left: -25px;
+  width: 10px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-left: 10px solid black;
+  border-bottom: 10px solid transparent;
+} */
